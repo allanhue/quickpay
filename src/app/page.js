@@ -1,8 +1,10 @@
-import Sidebar from "../components/Sidebar";
-  import Topbar from "../components/Topbar";
-import PaymentsTable from "../components/PaymentsTable";
-import NewInvoiceDrawer from "../components/NewInvoiceDrawer";
-import PaymentModal from "../components/PaymentModal";
+"use client";
+
+import Sidebar from "./components/Sidebar";
+import Topbar from "./components/Topbar";
+import PaymentsTable from "./components/Payment_table";
+import NewInvoiceDrawer from "./components/Invoice_drawer";
+import PaymentModal from "./components/Payment_modal";
 
 export default function Page() {
   return (
