@@ -10,6 +10,8 @@ import {
   Settings,
   FilePlus2,
   FileText,
+  HelpCircle,
+  Mail,
 } from "lucide-react";
 import { useInvoiceStore } from "../store/InvoiceStore";
 
@@ -27,7 +29,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <div className="w-60 shrink-0 bg-white border-r border-gray-200 h-screen flex flex-col">
+    <div className="w-60 shrink-0 bg-white h-screen flex flex-col">
       {/* Logo Section */}
       <div className="px-4 py-4 border-b border-gray-100">
         <div className="flex items-center gap-2">
@@ -116,6 +118,41 @@ export default function Sidebar() {
           })}
         </div>
       </nav>
+
+      {/* Help & Contact Section */}
+      <div className="px-2 py-3 border-t border-gray-100">
+        <div className="space-y-0.5">
+          <button
+            onClick={() => setActiveTab("help")}
+            className={`w-full flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
+              activeTab === "help"
+                ? "bg-blue-50 text-blue-700"
+                : "text-gray-700 hover:bg-gray-50"
+            }`}
+          >
+            <HelpCircle className="w-4 h-4" />
+            <span className="font-medium">Help Center</span>
+          </button>
+
+          {/* <button
+            onClick={() => setActiveTab("contact")}
+            className={`w-full flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
+              activeTab === "contact"
+                ? "bg-blue-50 text-blue-700"
+                : "text-gray-700 hover:bg-gray-50"
+            }`}
+          >
+            <Mail className="w-4 h-4" />
+            <span className="font-medium">Contact Us</span>
+          </button> */}
+        </div>
+
+        {/* Support Info */}
+        <div className="mt-3 px-3 py-2 bg-gray-50 rounded-md border border-gray-200">
+          <p className="text-[10px] font-medium text-gray-700 mb-1">Need Help?</p>
+          <p className="text-[9px] text-gray-500">support@quickpay.com</p>
+        </div>
+      </div>
     </div>
   );
 }
