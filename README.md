@@ -121,7 +121,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the app.
 
 ```typescript
 interface Invoice {
-  id: string;                    // Unique identifier
+  id: string;                    //id
   customer: string;              // Customer name
   email: string;                 // Customer email
   amount: number;                // Total amount
@@ -155,38 +155,7 @@ npm run build
 ```
 
 
-
-**Project Organization**
-- Followed Next.js 14 App Router conventions
-- Components separated by responsibility
-- Centralized type definitions
-- Clean folder structure
-- Reusable utility functions
-
-## Future Enhancements
-**Planned Features**
-- [ ] Zod validation - Schema-based form validation
-- [ ] Backend integration - Supabase or Firebase
-- [ ] PDF generation - Export invoices as PDF
-- [ ] Email notifications - Automated invoice emails
-- [ ] Payment gateway - Stripe/PayPal integration
-- [ ] Multi-currency - Support for different currencies
-- [ ] Analytics - Advanced reporting and charts
-- [ ] Pagination - Table pagination for large datasets
-- [ ] Dark mode - Theme switching
-- [ ] Unit tests - Jest + React Testing Library
-
-**Technical Improvements**
-- [ ] Add localStorage persistence
-- [ ] Implement optimistic updates
-- [ ] Add loading states and skeletons
-- [ ] Error boundaries
-- [ ] Accessibility improvements (ARIA)
-
 ## Contributing
-
-Contributions are welcome  Please follow these steps:
-
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
