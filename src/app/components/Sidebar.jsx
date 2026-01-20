@@ -31,7 +31,7 @@ export default function Sidebar() {
   return (
     <div className="w-60 shrink-0 bg-white h-screen flex flex-col">
       {/* Logo Section */}
-      <div className="px-4 py-4 border-b border-gray-100">
+      <div className="px-4 py-4">
         <div className="flex items-center gap-2">
           <div className="w-7 h-7 rounded-md bg-blue-600 flex items-center justify-center text-white font-semibold text-xs">
             Q
@@ -120,7 +120,7 @@ export default function Sidebar() {
       </nav>
 
       {/* Help & Contact Section */}
-      <div className="px-2 py-3 border-t border-gray-100">
+      <div className="px-2 py-3">
         <div className="space-y-0.5">
           <button
             onClick={() => setActiveTab("help")}
@@ -148,7 +148,7 @@ export default function Sidebar() {
         </div>
 
         {/* Support Info */}
-        <div className="mt-3 px-3 py-2 bg-gray-50 rounded-md border border-gray-200">
+        <div className="mt-3 px-3 py-2 bg-gray-50 rounded-md">
           <p className="text-[10px] font-medium text-gray-700 mb-1">Need Help?</p>
           <p className="text-[9px] text-gray-500">support@quickpay.com</p>
         </div>
