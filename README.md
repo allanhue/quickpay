@@ -148,15 +148,8 @@ Example: Creating an invoice
 3. Store adds invoice to array → `isDrawerOpen = false`
 4. Table re-renders with new invoice → Drawer closes
 
-## 🚀 Next Steps (Bonus Features)
 
-To extend this project, consider adding:
 
-1. **Backend Integration**:
-
-   - Supabase for data persistence
-   - API routes for CRUD operations
-   - Authentication
 
 2. **Form Validation**:
 
@@ -175,7 +168,7 @@ To extend this project, consider adding:
    - Analytics dashboard
    - Email notifications
 
-## 📝 Notes
+##  Notes
 
 - All components use "use client" directive (Next.js App Router)
 - Mock data included in store for demo purposes
@@ -183,7 +176,7 @@ To extend this project, consider adding:
 - No external UI libraries needed
 - State persists during session (reset on refresh)
 
-## 🎯 Key Improvements from Original
+##  Key Improvements from Original
 
 1. **Enhanced Store**: More actions, search/filter state
 2. **Stats Dashboard**: Real-time calculations
