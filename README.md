@@ -49,7 +49,7 @@ quickpay/
 
 ## Tech Stack
 
-- Next.js 14 (App Router)
+- Next.js 15 (App Router)
 - TypeScript 5
 - React 18
 - Tailwind CSS
