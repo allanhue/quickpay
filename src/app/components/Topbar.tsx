@@ -1,34 +1,38 @@
 "use client";
 
+import { ChangeEvent } from "react";
 import { Search, Bell, ChevronDown } from "lucide-react";
 import { useInvoiceStore } from "../store/InvoiceStore";
 
 export default function Topbar() {
   const { searchQuery, setSearchQuery } = useInvoiceStore();
 
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
   return (
     <div className="bg-white px-6 py-3 sticky top-0 z-10">
       <div className="flex items-center justify-between">
         {/* Search Bar */}
-      <div className="flex-1 max-w-md">
-  <div className="relative">
-    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-    <input
-      type="text"
-      placeholder="Search invoices and  customers..."
-      value={searchQuery}
-      onChange={(e) => setSearchQuery(e.target.value)}
-      className="w-full pl-9 pr-3 py-2 text-sm
-                 bg-white text-gray-900
-                 border border-gray-300
-                 rounded-lg shadow-sm
-                 placeholder-gray-400
-                 focus:outline-none focus:ring-0 focus:ring-transparent focus:border-gray-300
-                 transition-all duration-200"
-    />
-  </div>
-</div>
-
+        <div className="flex-1 max-w-md">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search invoices and customers..."
+              value={searchQuery}
+              onChange={handleSearchChange}
+              className="w-full pl-9 pr-3 py-2 text-sm
+                         bg-white text-gray-900
+                         border border-gray-300
+                         rounded-lg shadow-sm
+                         placeholder-gray-400
+                         focus:outline-none focus:ring-0 focus:ring-transparent focus:border-gray-300
+                         transition-all duration-200"
+            />
+          </div>
+        </div>
 
         {/* Right Section */}
         <div className="flex items-center gap-3">

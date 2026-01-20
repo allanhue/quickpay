@@ -3,6 +3,10 @@
 import { useState, useMemo } from 'react';
 import { useInvoiceStore } from '../store/InvoiceStore';
 import { Eye, Download, MoreVertical, TrendingUp, DollarSign, Clock, CheckCircle } from 'lucide-react';
+import { Invoice } from '@/types/invoice';
+
+type SortBy = 'date' | 'amount';
+type SortOrder = 'asc' | 'desc';
 
 export default function PaymentsTable() {
   const { 
@@ -13,8 +17,8 @@ export default function PaymentsTable() {
     setFilterStatus 
   } = useInvoiceStore();
   
-  const [sortBy, setSortBy] = useState('date');
-  const [sortOrder, setSortOrder] = useState('desc');
+  const [sortBy, setSortBy] = useState<SortBy>('date');
+  const [sortOrder, setSortOrder] = useState<SortOrder>('desc');
   
   // Filter and search logic
   const filteredInvoices = useMemo(() => {
@@ -35,8 +39,8 @@ export default function PaymentsTable() {
     filtered = [...filtered].sort((a, b) => {
       if (sortBy === 'date') {
         return sortOrder === 'desc' 
-          ? new Date(b.date) - new Date(a.date)
-          : new Date(a.date) - new Date(b.date);
+          ? new Date(b.date).getTime() - new Date(a.date).getTime()
+          : new Date(a.date).getTime() - new Date(b.date).getTime();
       }
       if (sortBy === 'amount') {
         return sortOrder === 'desc' ? b.amount - a.amount : a.amount - b.amount;
@@ -57,7 +61,7 @@ export default function PaymentsTable() {
     return { total, paid, pending, overdue };
   }, [invoices]);
   
-  const getStatusColor = (status) => {
+  const getStatusColor = (status: Invoice['status']): string => {
     switch(status) {
       case 'Paid': return 'bg-green-50 text-green-700 border-green-200';
       case 'Pending': return 'bg-amber-50 text-amber-700 border-amber-200';
@@ -66,14 +70,14 @@ export default function PaymentsTable() {
     }
   };
   
-  const formatCurrency = (amount) => {
+  const formatCurrency = (amount: number): string => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD'
     }).format(amount);
   };
   
-  const formatDate = (dateString) => {
+  const formatDate = (dateString: string): string => {
     return new Date(dateString).toLocaleDateString('en-US', {
       month: 'short',
       day: 'numeric',
@@ -135,7 +139,7 @@ export default function PaymentsTable() {
             
             {/* Filter Tabs */}
             <div className="flex gap-1">
-              {['All', 'Paid', 'Pending', 'Overdue'].map(status => (
+              {(['All', 'Paid', 'Pending', 'Overdue'] as const).map(status => (
                 <button
                   key={status}
                   onClick={() => setFilterStatus(status)}

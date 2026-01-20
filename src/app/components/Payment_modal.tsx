@@ -2,6 +2,7 @@
 
 import { useInvoiceStore } from '../store/InvoiceStore';
 import { X, Download, Mail, Printer, Calendar, User, CreditCard } from 'lucide-react';
+import { Invoice } from '@/types/invoice';
 
 export default function PaymentModal() {
   const { 
@@ -14,14 +15,14 @@ export default function PaymentModal() {
   
   if (!isPaymentModalOpen || !selectedInvoice) return null;
   
-  const formatCurrency = (amount) => {
+  const formatCurrency = (amount: number): string => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD'
     }).format(amount);
   };
   
-  const formatDate = (dateString) => {
+  const formatDate = (dateString: string): string => {
     return new Date(dateString).toLocaleDateString('en-US', {
       month: 'long',
       day: 'numeric',
@@ -29,7 +30,7 @@ export default function PaymentModal() {
     });
   };
   
-  const getStatusColor = (status) => {
+  const getStatusColor = (status: Invoice['status']): string => {
     switch(status) {
       case 'Paid': return 'bg-green-50 text-green-700 border-green-200';
       case 'Pending': return 'bg-amber-50 text-amber-700 border-amber-200';
@@ -38,7 +39,7 @@ export default function PaymentModal() {
     }
   };
   
-  const handleStatusChange = (newStatus) => {
+  const handleStatusChange = (newStatus: Invoice['status']) => {
     updateInvoice(selectedInvoice.id, { status: newStatus });
   };
   
@@ -211,7 +212,7 @@ export default function PaymentModal() {
                 <div>
                   <h3 className="font-semibold text-sm text-gray-900 mb-1">Payment Information</h3>
                   <p className="text-xs text-gray-700">
-                    Please make payment within the due date , Thank you
+                    Please make payment within the due date, Thank you
                   </p>
                   <div className="mt-2 text-xs text-gray-600 space-y-0.5">
                     <p>Bank Transfer: Account #1234567890</p>

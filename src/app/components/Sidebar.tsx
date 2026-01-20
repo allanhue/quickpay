@@ -11,16 +11,22 @@ import {
   FilePlus2,
   FileText,
   HelpCircle,
-  Mail,
+  LucideIcon,
 } from "lucide-react";
 import { useInvoiceStore } from "../store/InvoiceStore";
 
+interface MenuItem {
+  id: string;
+  label: string;
+  icon: LucideIcon;
+}
+
 export default function Sidebar() {
-  const [activeTab, setActiveTab] = useState("invoices");
-  const [isInvoiceOpen, setIsInvoiceOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<string>("invoices");
+  const [isInvoiceOpen, setIsInvoiceOpen] = useState<boolean>(false);
   const { openDrawer } = useInvoiceStore();
 
-  const menuItems = [
+  const menuItems: MenuItem[] = [
     { id: "dashboard", label: "Home", icon: LayoutDashboard },
     { id: "invoices", label: "Invoices", icon: Receipt },
     { id: "customers", label: "Company", icon: Users },
@@ -133,18 +139,6 @@ export default function Sidebar() {
             <HelpCircle className="w-4 h-4" />
             <span className="font-medium">Help Center</span>
           </button>
-
-          {/* <button
-            onClick={() => setActiveTab("contact")}
-            className={`w-full flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
-              activeTab === "contact"
-                ? "bg-blue-50 text-blue-700"
-                : "text-gray-700 hover:bg-gray-50"
-            }`}
-          >
-            <Mail className="w-4 h-4" />
-            <span className="font-medium">Contact Us</span>
-          </button> */}
         </div>
 
         {/* Support Info */}
