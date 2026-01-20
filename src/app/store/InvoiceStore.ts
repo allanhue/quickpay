@@ -1,4 +1,4 @@
-// store/InvoiceStore.ts
+//InvoiceStore.ts as react redux
 "use client";
 
 import { create } from 'zustand';

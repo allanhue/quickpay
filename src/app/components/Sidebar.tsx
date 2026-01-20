@@ -49,7 +49,7 @@ export default function Sidebar() {
       {/* Navigation Menu */}
       <nav className="flex-1 px-2 py-3 overflow-y-auto">
         <div className="space-y-0.5">
-          {menuItems.map((item) => {
+          {menuItems.map((item: MenuItem) => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
 

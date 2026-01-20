@@ -2,7 +2,7 @@
 
 import { ChangeEvent } from "react";
 import { Search, Bell, ChevronDown } from "lucide-react";
-import { useInvoiceStore } from "../store/InvoiceStore";
+import { useInvoiceStore } from "@/app/store/InvoiceStore";
 
 export default function Topbar() {
   const { searchQuery, setSearchQuery } = useInvoiceStore();

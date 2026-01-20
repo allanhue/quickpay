@@ -245,7 +245,7 @@ export default function NewInvoiceDrawer() {
                     </tr>
                   </thead>
                   <tbody>
-                    {formData.items.map((item, index) => (
+                    {formData.items.map((item: InvoiceItem, index: number) => (
                       <tr key={index} className="border-t border-gray-100 hover:bg-gray-50 transition-colors">
                         <td className="px-4 py-2">
                           <input

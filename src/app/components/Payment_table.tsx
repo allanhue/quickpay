@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from 'react';
-import { useInvoiceStore } from '../store/InvoiceStore';
+import { useInvoiceStore } from '@/app/store/InvoiceStore';
 import { Eye, Download, MoreVertical, TrendingUp, DollarSign, Clock, CheckCircle } from 'lucide-react';
 import { Invoice } from '@/types/invoice';
 
@@ -25,18 +25,18 @@ export default function PaymentsTable() {
     let filtered = invoices;
     
     if (filterStatus !== 'All') {
-      filtered = filtered.filter(inv => inv.status === filterStatus);
+      filtered = filtered.filter((inv: Invoice) => inv.status === filterStatus);
     }
     
     if (searchQuery) {
-      filtered = filtered.filter(inv => 
+      filtered = filtered.filter((inv: Invoice) => 
         inv.customer.toLowerCase().includes(searchQuery.toLowerCase()) ||
         inv.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
         inv.id.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
     
-    filtered = [...filtered].sort((a, b) => {
+    filtered = [...filtered].sort((a: Invoice, b: Invoice) => {
       if (sortBy === 'date') {
         return sortOrder === 'desc' 
           ? new Date(b.date).getTime() - new Date(a.date).getTime()
@@ -53,10 +53,10 @@ export default function PaymentsTable() {
   
   // Calculate stats
   const stats = useMemo(() => {
-    const total = invoices.reduce((sum, inv) => sum + inv.amount, 0);
-    const paid = invoices.filter(inv => inv.status === 'Paid').reduce((sum, inv) => sum + inv.amount, 0);
-    const pending = invoices.filter(inv => inv.status === 'Pending').reduce((sum, inv) => sum + inv.amount, 0);
-    const overdue = invoices.filter(inv => inv.status === 'Overdue').reduce((sum, inv) => sum + inv.amount, 0);
+    const total = invoices.reduce((sum: number, inv: Invoice) => sum + inv.amount, 0);
+    const paid = invoices.filter((inv: Invoice) => inv.status === 'Paid').reduce((sum: number, inv: Invoice) => sum + inv.amount, 0);
+    const pending = invoices.filter((inv: Invoice) => inv.status === 'Pending').reduce((sum: number, inv: Invoice) => sum + inv.amount, 0);
+    const overdue = invoices.filter((inv: Invoice) => inv.status === 'Overdue').reduce((sum: number, inv: Invoice) => sum + inv.amount, 0);
     
     return { total, paid, pending, overdue };
   }, [invoices]);
@@ -181,7 +181,7 @@ export default function PaymentsTable() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              {filteredInvoices.map((invoice) => (
+              {filteredInvoices.map((invoice: Invoice) => (
                 <tr 
                   key={invoice.id} 
                   className="hover:bg-gray-50 transition-colors cursor-pointer"

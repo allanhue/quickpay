@@ -1,8 +1,8 @@
 "use client";
 
-import { useInvoiceStore } from '../store/InvoiceStore';
+import { useInvoiceStore } from '@/app/store/InvoiceStore';
 import { X, Download, Mail, Printer, Calendar, User, CreditCard } from 'lucide-react';
-import { Invoice } from '@/types/invoice';
+import { Invoice, InvoiceItem } from '@/types/invoice';
 
 export default function PaymentModal() {
   const { 
@@ -49,7 +49,7 @@ export default function PaymentModal() {
     }
   };
   
-  const subtotal = selectedInvoice.items.reduce((sum, item) => 
+  const subtotal = selectedInvoice.items.reduce((sum: number, item: InvoiceItem) => 
     sum + (item.quantity * item.price), 0
   );
   const tax = subtotal * 0;
@@ -165,7 +165,7 @@ export default function PaymentModal() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
-                  {selectedInvoice.items.map((item, index) => (
+                  {selectedInvoice.items.map((item: InvoiceItem, index: number) => (
                     <tr key={index}>
                       <td className="px-5 py-3 text-sm text-gray-900">{item.description}</td>
                       <td className="px-5 py-3 text-right text-sm text-gray-600">{item.quantity}</td>
