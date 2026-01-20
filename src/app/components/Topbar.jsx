@@ -23,7 +23,7 @@ export default function Topbar() {
                  border border-gray-300
                  rounded-lg shadow-sm
                  placeholder-gray-400
-                 focus:outline-none focus:ring-2 focus:ring-blue-500
+                 focus:outline-none focus:ring-0 focus:ring-transparent focus:border-gray-300
                  transition-all duration-200"
     />
   </div>
