@@ -86,7 +86,7 @@ export default function PaymentModal() {
             <div className="flex justify-between items-start pb-5 border-b border-gray-200">
               <div>
                 <h1 className="text-2xl font-bold text-gray-900">QuickPay</h1>
-                <p className="text-xs text-gray-500 mt-0.5">Professional Invoicing</p>
+                {/* <p className="text-xs text-gray-500 mt-0.5">Professional Invoicing</p> */}
               </div>
               <div className="text-right">
                 <p className="text-lg font-semibold text-gray-900">INVOICE</p>

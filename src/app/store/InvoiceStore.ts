@@ -33,7 +33,7 @@ const sampleInvoices: Invoice[] = [
       { description: 'Web Development Services', quantity: 40, price: 125.00 },
       { description: 'UI/UX Design', quantity: 12, price: 85.00 }
     ],
-    notes: 'Thank you for your business!'
+    notes: 'Thank you for your business'
   },
   {
     id: 'INV-2024-002',
@@ -46,7 +46,7 @@ const sampleInvoices: Invoice[] = [
     items: [
       { description: 'Monthly Retainer - January', quantity: 1, price: 3250.00 }
     ],
-    notes: 'Net 30 payment terms'
+    notes: 'Net 30 payment terms for the month of January'
   },
   {
     id: 'INV-2024-003',

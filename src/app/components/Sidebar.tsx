@@ -55,13 +55,17 @@ export default function Sidebar() {
 
             if (item.id === "invoices") {
               return (
-                <div key={item.id}>
+                <div
+                  key={item.id}
+                  className="relative"
+                  onMouseEnter={() => {
+                    setIsInvoiceOpen(true);
+                    setActiveTab(item.id);
+                  }}
+                  onMouseLeave={() => setIsInvoiceOpen(false)}
+                >
                   {/* Parent button */}
                   <button
-                    onClick={() => {
-                      setIsInvoiceOpen(!isInvoiceOpen);
-                      setActiveTab(item.id);
-                    }}
                     className={`w-full flex items-center justify-between gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
                       isActive
                         ? "bg-blue-50 text-blue-700"
@@ -73,36 +77,40 @@ export default function Sidebar() {
                       <span className="font-medium">{item.label}</span>
                     </div>
                     <ChevronDown
-                      className={`w-3 h-3 transition-transform ${
+                      className={`w-3 h-3 transition-transform duration-300 ${
                         isInvoiceOpen ? "rotate-180" : ""
                       }`}
                     />
                   </button>
 
                   {/* Submenu */}
-                  {isInvoiceOpen && (
-                    <div className="ml-6 mt-0.5 space-y-0.5">
-                      <button
-                        onClick={() => setActiveTab("all_invoices")}
-                        className={`w-full text-left flex items-center gap-2 px-2 py-1.5 rounded-md text-xs transition-colors ${
-                          activeTab === "all_invoices"
-                            ? "bg-blue-50 text-blue-700 font-medium"
-                            : "text-gray-600 hover:bg-gray-50"
-                        }`}
-                      >
-                        <FileText className="w-3.5 h-3.5" />
-                        All Invoices
-                      </button>
+                  <div
+                    className={`ml-6 mt-0.5 space-y-0.5 transition-all duration-300 overflow-hidden ${
+                      isInvoiceOpen
+                        ? "max-h-32 opacity-100"
+                        : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <button
+                      onClick={() => setActiveTab("all_invoices")}
+                      className={`w-full text-left flex items-center gap-2 px-2 py-1.5 rounded-md text-xs transition-colors ${
+                        activeTab === "all_invoices"
+                          ? "bg-blue-50 text-blue-700 font-medium"
+                          : "text-gray-600 hover:bg-gray-50"
+                      }`}
+                    >
+                      <FileText className="w-3.5 h-3.5" />
+                      All Invoices
+                    </button>
 
-                      <button
-                        onClick={openDrawer}
-                        className="w-full text-left flex items-center gap-2 px-2 py-1.5 rounded-md text-xs text-gray-600 hover:bg-gray-50 transition-colors"
-                      >
-                        <FilePlus2 className="w-3.5 h-3.5" />
-                        Create Invoice
-                      </button>
-                    </div>
-                  )}
+                    <button
+                      onClick={openDrawer}
+                      className="w-full text-left flex items-center gap-2 px-2 py-1.5 rounded-md text-xs text-gray-600 hover:bg-gray-50 transition-colors"
+                    >
+                      <FilePlus2 className="w-3.5 h-3.5" />
+                      Create Invoice
+                    </button>
+                  </div>
                 </div>
               );
             }
@@ -143,7 +151,9 @@ export default function Sidebar() {
 
         {/* Support Info */}
         <div className="mt-3 px-3 py-2 bg-gray-50 rounded-md">
-          <p className="text-[10px] font-medium text-gray-700 mb-1">Need Help?</p>
+          <p className="text-[10px] font-medium text-gray-700 mb-1">
+            Need Help?
+          </p>
           <p className="text-[9px] text-gray-500">support@quickpay.com</p>
         </div>
       </div>
