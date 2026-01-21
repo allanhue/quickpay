@@ -329,7 +329,7 @@ export default function NewInvoiceDrawer() {
                 </h3>
                 <textarea
                   rows={4}
-                  placeholder="Additional notes or payment terms..."
+                  placeholder="payment terms..."
                   value={formData.notes}
                   onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleInputChange("notes", e.target.value)}
                   className="w-full border border-gray-200 rounded-md p-3 text-sm focus:border-gray-400 focus:ring-0 outline-none placeholder-gray-400 text-gray-800 resize-none shadow-sm"
