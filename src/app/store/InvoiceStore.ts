@@ -51,7 +51,7 @@ const sampleInvoices: Invoice[] = [
   {
     id: 'INV-2024-003',
     customer: 'Global Solutions Ltd',
-    email: 'accounts@globalsolutions.com',
+    email: 'safaricom@globalsolutions.com',
     amount: 1850.00,
     date: '2024-01-10',
     dueDate: '2024-01-25',
